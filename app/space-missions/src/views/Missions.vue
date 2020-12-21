@@ -41,7 +41,8 @@
               {{ astronaut.name }}
             </option>
           </select>
-          <input type="text" placeholder="Year" v-model="new_mission.year" />
+          <input type="text" placeholder="Year" v-model="new_mission.date" />
+          <textarea v-model="new_mission.description" placeholder="Description"></textarea>
           <input type="submit" @click.prevent="addMission" />
         </form>
       </div>
@@ -60,7 +61,8 @@ export default {
       new_mission: {
         name: "",
         insignia: null,
-        year: "",
+        date: "",
+        description: '',
         astronauts: null,
       },
     };
@@ -70,7 +72,8 @@ export default {
       this.new_mission = {
         name: "",
         insignia: null,
-        year: "",
+        date: "",
+        description: '',
         astronauts: null,
       };
     },
@@ -82,7 +85,8 @@ export default {
         variables: {
           name: this.new_mission.name,
           insignia: this.new_mission.insignia,
-          date: this.new_mission.year.toString(),
+          date: this.new_mission.date.toString(),
+          description: this.new_mission.description,
           astronauts: [1, 2],
         },
         update: (store, { data: { addMission } }) => {

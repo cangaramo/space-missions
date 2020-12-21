@@ -7,18 +7,21 @@ export const ADD_MISSION = gql`
     $name: String
     $insignia: String
     $date: String
+    $description: String
     $astronauts: [ID]
   ) {
     addMission: addMission(
       name: $name
       insignia: $insignia
       date: $date
+      description: $description
       astronauts: $astronauts
     ) {
       id
       name
       insignia
       date
+      description
       astronauts
     }
   }
@@ -31,6 +34,7 @@ export const DELETE_MISSION = gql`
       name
       insignia
       date
+      description
       astronauts
     }
   }

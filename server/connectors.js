@@ -17,13 +17,13 @@ var getMissions = () => {
   return missions;
 };
 
-var addMission = ({ name, insignia, date, astronauts }) => {
+var addMission = ({ name, insignia, date, description, astronauts }) => {
   const new_mission = {
     id: missions.length,
     name: name,
     insignia: insignia,
     date: date,
-    description: '',
+    description: description,
     astronauts: astronauts,
   };
   missions.push(new_mission);
