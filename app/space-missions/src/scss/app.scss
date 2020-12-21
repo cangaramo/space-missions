@@ -1,6 +1,14 @@
 @import 'astronaut.scss';
 @import 'mission.scss';
 
+$purple-light: #8776ca;
+$purple-strong: #3f20ba;
+
+body {
+  background-image: url("~@/assets/space.jpg");
+  background-size: cover;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -11,19 +19,21 @@
 
 #nav {
   padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  a {
+    font-weight: bold;
+    color: #a5a5a5;
+    &.router-link-exact-active {
+      color: $purple-light;
+    }
+  }
 }
 
 a {
-  color: #42b983;
+  color: $purple-light;
+}
+
+h2{
+  color: white !important;
 }
 
 .mission,
@@ -37,7 +47,7 @@ a {
     -webkit-appearance: none;
     border: none;
     margin: 4px;
-    color: #42b983;
+    color: $purple-strong;
     &:focus {
       outline: none;
     }
@@ -55,7 +65,7 @@ form {
     }
   }
   input[type="submit"] {
-    background: #42b983;
+    background: $purple-strong;
     color: White;
     margin-top: 10px;
     width: 100%;
