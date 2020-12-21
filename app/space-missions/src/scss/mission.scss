@@ -1,0 +1,28 @@
+.mission {
+  margin: 0 auto;
+  width: 100%;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: -2px 2px 8px 0px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  height: 100%;
+  .top {
+    display: flex;
+    img {
+      max-width: 70px;
+      float: left;
+    }
+  }
+  p {
+    margin: 0px;
+    font-size: 15px;
+  }
+  h4 {
+    margin-bottom: 6px;
+    margin-top: 0;
+    font-size: 23px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+}

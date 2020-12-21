@@ -1,0 +1,77 @@
+@import 'astronaut.scss';
+@import 'mission.scss';
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+
+a {
+  color: #42b983;
+}
+
+.mission,
+.astronaut {
+  position: relative;
+  .remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: white;
+    -webkit-appearance: none;
+    border: none;
+    margin: 4px;
+    color: #42b983;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+form {
+  input[type="text"] {
+    width: 100%;
+    margin-top: 10px;
+    padding: 3px 10px;
+    border-radius: 8px;
+    border: 1px solid gainsboro;
+    &:focus {
+      outline: none;
+    }
+  }
+  input[type="submit"] {
+    background: #42b983;
+    color: White;
+    margin-top: 10px;
+    width: 100%;
+    border: none;
+    padding: 4px;
+    border-radius: 8px;
+    &:focus {
+      outline: none;
+    }
+  }
+  select {
+    width: 100%;
+    background: white;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid gainsboro;
+    padding: 3px 10px;
+  }
+}
