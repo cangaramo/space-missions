@@ -66,10 +66,12 @@ export default {
     };
   },
   methods: {
-    clearAstronaut() {
-      this.new_astronaut = {
+    clearMission() {
+      this.new_mission = {
         name: "",
-        picture: "",
+        insignia: null,
+        year: "",
+        astronauts: null,
       };
     },
     async addMission() {

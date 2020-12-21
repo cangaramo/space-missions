@@ -17,12 +17,12 @@ var getMissions = () => {
   return missions;
 };
 
-var addMission = ({ name, insignia, year, astronauts }) => {
+var addMission = ({ name, insignia, date, astronauts }) => {
   const new_mission = {
     id: missions.length,
     name: name,
     insignia: insignia,
-    year: year,
+    date: date,
     description: '',
     astronauts: astronauts,
   };

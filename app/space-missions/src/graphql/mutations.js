@@ -6,19 +6,19 @@ export const ADD_MISSION = gql`
   mutation addMission(
     $name: String
     $insignia: String
-    $year: String
+    $date: String
     $astronauts: [ID]
   ) {
     addMission: addMission(
       name: $name
       insignia: $insignia
-      year: $year
+      date: $date
       astronauts: $astronauts
     ) {
       id
       name
       insignia
-      year
+      date
       astronauts
     }
   }
@@ -30,7 +30,8 @@ export const DELETE_MISSION = gql`
       id
       name
       insignia
-      year
+      date
+      astronauts
     }
   }
 `;
