@@ -170,6 +170,17 @@ export default {
         },
         update: (store, { data: { addMission } }) => {
           const data = store.readQuery({ query: GET_MISSIONS });
+
+          // Match names with astronaut ids
+          const dataAstronauts = store.readQuery({ query: GET_ASTRONAUTS }).astronauts;
+          addMission.astronauts.forEach(function (missionAstronaut, index) {
+              dataAstronauts.forEach(function (astronaut) {
+                if (astronaut.id == missionAstronaut) {
+                  addMission.astronauts[index] = astronaut.name;
+                }
+              });
+          });
+
           data.missions.push(addMission);
           store.writeQuery({ query: GET_MISSIONS, data });
         },
