@@ -23,14 +23,17 @@
         </div>
       </div>
       <div class="col-4 pl-5">
-        <h2 class="mb-4">Add new Mission</h2>
+        <h2 class="mb-4">Add new</h2>
         <form>
-          <input type="text" placeholder="Name" v-model="new_mission.name" />
+          <label>Name</label>
+          <input type="text" placeholder="Apollo 11" v-model="new_mission.name" />
+          <label>Insignia image</label>
           <input
             type="text"
-            placeholder="Insignia"
+            placeholder="https://upload.wikimedia.org/wikipedia/commons/2/27/Apollo_11_insignia.png"
             v-model.number="new_mission.insignia"
           />
+          <label>Astronauts</label>
           <select v-model.number="new_mission.astronauts">
             <option value="null">Select astronaut</option>
             <option
@@ -41,8 +44,10 @@
               {{ astronaut.name }}
             </option>
           </select>
-          <input type="text" placeholder="Year" v-model="new_mission.date" />
-          <textarea v-model="new_mission.description" placeholder="Description"></textarea>
+          <label>Date</label>
+          <input type="text" placeholder="July 1969" v-model="new_mission.date" />
+          <label>Description</label>
+          <textarea v-model="new_mission.description" placeholder="Short description of the mission"></textarea>
           <input type="submit" @click.prevent="addMission" />
         </form>
       </div>

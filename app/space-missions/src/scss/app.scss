@@ -54,14 +54,26 @@ h2{
   }
 }
 form {
+  label {
+    width: 100%;
+    text-align: left;
+    color: white;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    font-size: 13px;
+    font-weight: 700;
+  }
   input[type="text"], textarea {
     width: 100%;
-    margin-top: 10px;
-    padding: 3px 10px;
-    border-radius: 8px;
+    margin-bottom: 7px;
+    padding: 5px 10px;
+    border-radius: 5px;
     border: 1px solid gainsboro;
+    font-size: 15px;
     &:focus {
       outline: none;
+      box-shadow: 0px 0px 8px 2px #755ae1;
+      border-color: #3f21ba;
     }
   }
   input[type="submit"] {
@@ -70,7 +82,7 @@ form {
     margin-top: 10px;
     width: 100%;
     border: none;
-    padding: 4px;
+    padding: 5px;
     border-radius: 8px;
     &:focus {
       outline: none;
@@ -79,9 +91,10 @@ form {
   select {
     width: 100%;
     background: white;
-    margin-top: 10px;
-    border-radius: 8px;
+    margin-bottom: 7px;
+    border-radius: 5px;
     border: 1px solid gainsboro;
     padding: 3px 10px;
+    font-size: 14px;
   }
 }

@@ -23,15 +23,18 @@
         </div>
       </div>
       <div class="col-4 pl-5">
-        <h2 class="mb-4">Add new Astronaut</h2>
+        <h2 class="mb-4">Add new</h2>
         <form>
-          <input type="text" placeholder="Name" v-model="new_astronaut.name" />
+          <label>Name</label>
+          <input type="text" placeholder="Neil Armstrong" v-model="new_astronaut.name" />
+          <label>Picture URL</label>
           <input
             type="text"
-            placeholder="Picture"
+            placeholder="https://upload.wikimedia.org/wikipedia/commons/0/0d/Neil_Armstrong_pose.jpg"
             v-model.number="new_astronaut.picture"
           />
-          <input type="text" placeholder="Nationality" v-model="new_astronaut.nationality" />
+           <label>Nationality</label>
+          <input type="text" placeholder="American" v-model="new_astronaut.nationality" />
           <input type="submit" @click.prevent="addAstronaut" />
         </form>
       </div>
