@@ -1,26 +1,39 @@
 <template>
-  <div class="row px-3">
-    <div class="col-3">
-      <h2>Astronauts</h2>
-      <div class="director" v-for="(astronaut, index) in astronauts" :key="index">
-        <h4>{{ astronaut.name }}</h4>
-        <p>{{ astronaut.country }}</p>
-        <button class="remove" @click="removeAstronaut(astronaut.id)">
-          <i class="fas fa-times"></i>
-        </button>
+  <div class="container">
+    <div class="row">
+      <div class="col-8 pr-4">
+        <h2 class="mb-4">Astronauts 🧑‍🚀</h2>
+        <div class="row">
+          <div
+            class="col-6"
+            v-for="(astronaut, index) in astronauts"
+            :key="index"
+          >
+            <div class="astronaut">
+              <div class="img" :style="{ backgroundImage: `url(${astronaut.picture})` }"></div>
+              <div class="pl-4">
+                <h4 class="mt-4">{{ astronaut.name }}</h4>
+                <p>{{ astronaut.nationality }}</p>
+              </div>
+              <button class="remove" @click="removeAstronaut(astronaut.id)">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-3 px-4">
-      <h2>Add new Astronaut</h2>
-      <form>
-        <input type="text" placeholder="Name" v-model="new_astronaut.name" />
-        <input
-          type="text"
-          placeholder="Picture"
-          v-model.number="new_astronaut.picture"
-        />
-        <input type="submit" @click.prevent="addAstronaut" />
-      </form>
+      <div class="col-4 pl-5">
+        <h2 class="mb-4">Add new Astronaut</h2>
+        <form>
+          <input type="text" placeholder="Name" v-model="new_astronaut.name" />
+          <input
+            type="text"
+            placeholder="Picture"
+            v-model.number="new_astronaut.picture"
+          />
+          <input type="submit" @click.prevent="addAstronaut" />
+        </form>
+      </div>
     </div>
   </div>
 </template>

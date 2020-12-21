@@ -22,6 +22,7 @@ export const GET_ASTRONAUTS = gql`
       id
       name
       picture
+      nationality
     }
   }
 `;

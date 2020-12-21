@@ -1,6 +1,6 @@
 <template>
   <div class="row px-3">
-    <div class="col-3">
+    <div class="col-4 offset-1">
       <h2>Missions</h2>
       <div class="film" v-for="(mission, index) in missions" :key="index">
         <img :src="mission.insignia" />
@@ -27,11 +27,15 @@
         </button>
       </div>
     </div>
-    <div class="col-3 px-4">
+    <div class="col-4 offset-2">
       <h2>Add new Mission</h2>
       <form>
         <input type="text" placeholder="Name" v-model="new_mission.name" />
-        <input type="text" placeholder="Insignia" v-model.number="new_mission.insignia" />
+        <input
+          type="text"
+          placeholder="Insignia"
+          v-model.number="new_mission.insignia"
+        />
         <select v-model.number="new_mission.astronauts">
           <option value="null">Select astronaut</option>
           <option
@@ -50,7 +54,7 @@
 </template>
 
 <script>
-import { GET_MISSIONS,GET_ASTRONAUTS } from "@/graphql/queries.js";
+import { GET_MISSIONS, GET_ASTRONAUTS } from "@/graphql/queries.js";
 import { ADD_MISSION, DELETE_MISSION } from "@/graphql/mutations.js";
 
 export default {
@@ -60,7 +64,7 @@ export default {
       new_mission: {
         name: "",
         insignia: null,
-        year: '',
+        year: "",
         astronauts: null,
       },
     };
@@ -81,19 +85,20 @@ export default {
           name: this.new_mission.name,
           insignia: this.new_mission.insignia,
           year: this.new_mission.year.toString(),
-          astronauts: [1,2],
+          astronauts: [1, 2],
         },
         update: (store, { data: { addMission } }) => {
           const data = store.readQuery({ query: GET_MISSIONS });
 
           // Match names with astronaut ids
-          const dataAstronauts = store.readQuery({ query: GET_ASTRONAUTS }).astronauts;
-          addMission.astronauts.forEach(function (missionAstronaut, index) {
-              dataAstronauts.forEach(function (astronaut) {
-                if (astronaut.id == missionAstronaut) {
-                  addMission.astronauts[index] = astronaut.name;
-                }
-              });
+          const dataAstronauts = store.readQuery({ query: GET_ASTRONAUTS })
+            .astronauts;
+          addMission.astronauts.forEach(function(missionAstronaut, index) {
+            dataAstronauts.forEach(function(astronaut) {
+              if (astronaut.id == missionAstronaut) {
+                addMission.astronauts[index] = astronaut.name;
+              }
+            });
           });
 
           data.missions.push(addMission);
