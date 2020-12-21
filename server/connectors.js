@@ -45,11 +45,12 @@ var getAstronauts = () => {
   return astronauts;
 };
 
-var addAstronaut = ({ name, picture }) => {
+var addAstronaut = ({ name, picture, nationality }) => {
     const new_astronaut = {
       id: astronauts.length,
       name: name,
       picture: picture,
+      nationality: nationality,
     };
     astronauts.push(new_astronaut);
     return new_astronaut;

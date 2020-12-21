@@ -38,11 +38,12 @@ export const DELETE_MISSION = gql`
 /* Astronauts */
 
 export const ADD_ASTRONAUT = gql`
-  mutation addAstronaut($name: String, $picture: String) {
-    addAstronaut: addAstronaut(name: $name, picture: $picture) {
+  mutation addAstronaut($name: String, $picture: String, $nationality: String) {
+    addAstronaut: addAstronaut(name: $name, picture: $picture, nationality: $nationality) {
       id
       name
       picture
+      nationality
     }
   }
 `;

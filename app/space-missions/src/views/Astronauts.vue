@@ -31,6 +31,7 @@
             placeholder="Picture"
             v-model.number="new_astronaut.picture"
           />
+          <input type="text" placeholder="Nationality" v-model="new_astronaut.nationality" />
           <input type="submit" @click.prevent="addAstronaut" />
         </form>
       </div>
@@ -49,6 +50,7 @@ export default {
       new_astronaut: {
         name: "",
         picture: "",
+        nationality: "",
       },
     };
   },
@@ -68,6 +70,7 @@ export default {
           variables: {
             name: this.new_astronaut.name,
             picture: this.new_astronaut.picture,
+            nationality: this.new_astronaut.nationality,
           },
           // Read and write the data from/to our cache for this query.
           update: (cache, { data: { addAstronaut } }) => {
