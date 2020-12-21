@@ -26,11 +26,8 @@
 </template>
 
 <script>
-import {
-  GET_ASTRONAUTS,
-  ADD_ASTRONAUT,
-  DELETE_ASTRONAUT,
-} from "@/graphql/queries.js";
+import { GET_ASTRONAUTS } from "@/graphql/queries.js";
+import { ADD_ASTRONAUT, DELETE_ASTRONAUT } from "@/graphql/mutations.js";
 
 export default {
   name: "Home",

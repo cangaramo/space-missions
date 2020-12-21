@@ -50,12 +50,8 @@
 </template>
 
 <script>
-import {
-  GET_MISSIONS,
-  GET_ASTRONAUTS,
-  ADD_MISSION,
-  DELETE_MISSION,
-} from "@/graphql/queries.js";
+import { GET_MISSIONS,GET_ASTRONAUTS } from "@/graphql/queries.js";
+import { ADD_MISSION, DELETE_MISSION } from "@/graphql/mutations.js";
 
 export default {
   name: "Home",
@@ -123,6 +119,9 @@ export default {
     },
   },
   apollo: {
+    astronauts: {
+      query: GET_ASTRONAUTS,
+    },
     missions: {
       query: GET_MISSIONS,
     },
