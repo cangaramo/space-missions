@@ -8,7 +8,7 @@ var getMissions = () => {
   missions.map((mission) => {
     mission.astronauts.forEach(function (missionAstronaut, index) {
       astronauts.forEach(function (astronaut) {
-        if (astronaut.id === missionAstronaut) {
+        if (astronaut.id == missionAstronaut) {
           mission.astronauts[index] = astronaut.name;
         }
       });
@@ -23,8 +23,9 @@ var addMission = ({ name, insignia, year, astronauts }) => {
     name: name,
     insignia: insignia,
     year: year,
-    astronauts: [],
+    astronauts: astronauts,
   };
+  console.log(new_mission);
   missions.push(new_mission);
   return new_mission;
 };

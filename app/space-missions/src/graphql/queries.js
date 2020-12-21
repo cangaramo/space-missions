@@ -15,7 +15,7 @@ export const GET_MISSIONS = gql`
 `;
 
 export const ADD_MISSION = gql`
-  mutation addMission($name: String, $insignia: String, $year: String, $astronauts: String) {
+  mutation addMission($name: String, $insignia: String, $year: String, $astronauts: [ID]) {
     addMission: addMission(name: $name, insignia: $insignia, year: $year, astronauts: $astronauts) {
       id
       name

@@ -15,6 +15,9 @@
             {{ mission.name }}
           </router-link>
           <p>{{ mission.year }}</p>
+          <div v-for="(missionAstronaut, index) in mission.astronauts" :key="index">
+            <p>{{ missionAstronaut }}</p>
+          </div>
         </div>
         <button class="remove" @click="removeMission(mission.id)">
           <i class="fas fa-times"></i>
@@ -163,7 +166,7 @@ export default {
           name: this.new_mission.name,
           insignia: this.new_mission.insignia,
           year: this.new_mission.year.toString(),
-          astronauts: 'a',
+          astronauts: [1,2],
         },
         update: (store, { data: { addMission } }) => {
           const data = store.readQuery({ query: GET_MISSIONS });
