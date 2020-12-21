@@ -8,7 +8,8 @@ export const GET_MISSIONS = gql`
       id
       name
       insignia
-      year
+      date
+      description
       astronauts
     }
   }

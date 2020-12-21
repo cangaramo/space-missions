@@ -4,7 +4,8 @@ export var missions = [
     name: "Apollo 13",
     insignia:
       "https://upload.wikimedia.org/wikipedia/commons/a/ac/Apollo_13-insignia.png",
-    year: 1970,
+    date: 'April 1970',
+    description: 'Precision manned lunar landing demonstration and systematic lunar exploration.',
     astronauts: [0, 2],
   },
   {
@@ -12,7 +13,8 @@ export var missions = [
     name: "Apollo 11",
     insignia:
       "https://upload.wikimedia.org/wikipedia/commons/2/27/Apollo_11_insignia.png",
-    year: 1969,
+    date: 'July 1969',
+    description: 'The initial lunar landing mission.',
     astronauts: [0, 1],
   },
   {
@@ -20,7 +22,8 @@ export var missions = [
     name: "Gemini 8",
     insignia:
       "https://upload.wikimedia.org/wikipedia/commons/6/6d/Ge08Patch_orig.png",
-    year: 1966,
+    date: 'March 1966',
+    description: 'Achieve the first space docking with an uncrewed Agena target vehicle.',
     astronauts: [1, 2],
   },
 ];
@@ -53,7 +56,7 @@ export var astronauts = [
   {
     id: 3,
     name: "Yuri Gagarin",
-    nationality: "Soviet ☭",
+    nationality: "Soviet 🇷🇺",
     short_bio: "" ,
     picture:
       "https://miro.medium.com/max/3000/1*NtnGztZkYYXJ0HIUc_zCYw.jpeg",

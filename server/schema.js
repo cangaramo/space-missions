@@ -7,7 +7,7 @@ export var schema = buildSchema(`
     getMissionById(id: Int): Mission
   }
   type Mutation {
-    addMission(name: String, insignia: String, year: String, astronauts: [ID]): Mission,
+    addMission(name: String, insignia: String, date: String, description: String, astronauts: [ID]): Mission,
     deleteMission(id: ID): [Mission],
     addAstronaut(name: String, picture: String, nationality: String): Astronaut
     deleteAstronaut(id:ID): [Astronaut]
@@ -16,13 +16,14 @@ export var schema = buildSchema(`
     id: ID,
     name: String,
     insignia: String,
-    year: Int
+    date: String,
+    description: String,
     astronauts: [ID]
   }
   type Astronaut {
     id: ID,
     name: String,
-    picture: String
+    picture: String,
     nationality: String,
   }
 `);

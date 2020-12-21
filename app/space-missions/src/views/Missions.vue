@@ -1,54 +1,50 @@
 <template>
-  <div class="row px-3">
-    <div class="col-4 offset-1">
-      <h2>Missions</h2>
-      <div class="film" v-for="(mission, index) in missions" :key="index">
-        <img :src="mission.insignia" />
-        <div class="film-content">
-          <router-link
-            tag="h4"
-            :to="{
-              name: 'film',
-              params: { id: mission.id },
-            }"
-          >
-            {{ mission.name }}
-          </router-link>
-          <p>{{ mission.year }}</p>
-          <div
-            v-for="(missionAstronaut, index) in mission.astronauts"
-            :key="index"
-          >
-            <p>{{ missionAstronaut }}</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <h2 class="mb-4">Missions 🚀</h2>
+        <div class="row">
+          <div class="col-6 px-2 mb-4" v-for="(mission, index) in missions" :key="index">
+            <div class="mission">
+              <div class="top">
+                <img :src="mission.insignia" />
+                <div class="pl-4"> 
+                  <h4>{{ mission.name }}</h4>
+                  <p>📅 {{ mission.date }}</p>
+                </div>
+              </div>
+              <p class="my-3">{{ mission.description }}</p>
+              <p>🧑‍🚀 {{ mission.astronauts.join(", ") }}</p>
+              <button class="remove" @click="removeMission(mission.id)">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
           </div>
         </div>
-        <button class="remove" @click="removeMission(mission.id)">
-          <i class="fas fa-times"></i>
-        </button>
       </div>
-    </div>
-    <div class="col-4 offset-2">
-      <h2>Add new Mission</h2>
-      <form>
-        <input type="text" placeholder="Name" v-model="new_mission.name" />
-        <input
-          type="text"
-          placeholder="Insignia"
-          v-model.number="new_mission.insignia"
-        />
-        <select v-model.number="new_mission.astronauts">
-          <option value="null">Select astronaut</option>
-          <option
-            :value="astronaut.id"
-            v-for="astronaut in astronauts"
-            :key="astronaut.id"
-          >
-            {{ astronaut.name }}
-          </option>
-        </select>
-        <input type="text" placeholder="Year" v-model="new_mission.year" />
-        <input type="submit" @click.prevent="addMission" />
-      </form>
+      <div class="col-4 pl-5">
+        <h2 class="mb-4">Add new Mission</h2>
+        <form>
+          <input type="text" placeholder="Name" v-model="new_mission.name" />
+          <input
+            type="text"
+            placeholder="Insignia"
+            v-model.number="new_mission.insignia"
+          />
+          <select v-model.number="new_mission.astronauts">
+            <option value="null">Select astronaut</option>
+            <option
+              :value="astronaut.id"
+              v-for="astronaut in astronauts"
+              :key="astronaut.id"
+            >
+              {{ astronaut.name }}
+            </option>
+          </select>
+          <input type="text" placeholder="Year" v-model="new_mission.year" />
+          <input type="submit" @click.prevent="addMission" />
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -84,7 +80,7 @@ export default {
         variables: {
           name: this.new_mission.name,
           insignia: this.new_mission.insignia,
-          year: this.new_mission.year.toString(),
+          date: this.new_mission.year.toString(),
           astronauts: [1, 2],
         },
         update: (store, { data: { addMission } }) => {

@@ -23,6 +23,7 @@ var addMission = ({ name, insignia, year, astronauts }) => {
     name: name,
     insignia: insignia,
     year: year,
+    description: '',
     astronauts: astronauts,
   };
   missions.push(new_mission);
