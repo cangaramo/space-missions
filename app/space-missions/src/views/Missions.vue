@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-8">
-        <h2 class="mb-4">Missions 🚀</h2>
+        <h2 class="mb-4">Missions 🚀 Test</h2>
         <div class="row">
           <div class="col-6 px-2 mb-4" v-for="(mission, index) in missions" :key="index">
             <div class="mission">
