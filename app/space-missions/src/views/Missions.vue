@@ -35,7 +35,7 @@
           />
           <label>Astronauts</label>
           <multiselect 
-            v-model="value"
+            v-model="selectedAstronauts"
             tag-placeholder="Add this as new tag" 
             placeholder="Search astronaut"
             label="name" track-by="code"
@@ -82,7 +82,7 @@ export default {
         description: '',
         astronauts: null,
       },
-      value: null,
+      selectedAstronauts: null,
       options: [],
     };
   },
@@ -114,8 +114,15 @@ export default {
         description: '',
         astronauts: null,
       };
+      this.selectedAstronauts = [];
     },
     async addMission() {
+      // Astronauts ids
+      const astronautsIds = []
+      this.selectedAstronauts.forEach( (astronaut) => { 
+       astronautsIds.push(astronaut.code);
+      });
+  
       await this.$apollo.mutate({
         // Query
         mutation: ADD_MISSION,
@@ -125,7 +132,7 @@ export default {
           insignia: this.new_mission.insignia,
           date: this.new_mission.date.toString(),
           description: this.new_mission.description,
-          astronauts: [1, 2],
+          astronauts: astronautsIds,
         },
         update: (store, { data: { addMission } }) => {
           const data = store.readQuery({ query: GET_MISSIONS });
