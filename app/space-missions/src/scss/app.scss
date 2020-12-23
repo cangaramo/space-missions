@@ -98,3 +98,56 @@ form {
     font-size: 14px;
   }
 }
+
+.multiselect {
+  &__tags {
+    input[type="text"] {
+      border: none;
+      box-shadow: none !important;
+      font-size: 13px;
+    }
+  }
+  &__tag {
+    background: $purple-strong;
+    margin-bottom: 0;
+    margin-right: 4px;
+    &-icon {
+      &:hover {
+        background: $purple-strong;
+      }
+      &:after {
+        color: white;
+      }
+    }
+  }
+  &__content-wrapper{
+    border: none !important;
+  }
+  &__option {
+    font-size: 13px !important;
+    &--highlight {
+      background: $purple-light;
+    }
+    &--selected {
+      background: white;
+      font-weight: 800 !important;
+      color: $purple-strong;
+      &:after {
+        content: '';
+      }
+      &.multiselect__option--highlight {
+        background: white;
+        color: $purple-strong;
+        &:after {
+          background: white;
+          color: gray;
+          font-weight: 400;
+          content: 'Remove';
+        }
+      }
+    }
+    &:after {
+      background: transparent;
+    }
+  }
+}

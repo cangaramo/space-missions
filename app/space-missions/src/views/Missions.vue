@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-8">
-        <h2 class="mb-4">Missions 🚀 Test</h2>
+        <h2 class="mb-4">Missions 🚀</h2>
         <div class="row">
           <div class="col-6 px-2 mb-4" v-for="(mission, index) in missions" :key="index">
             <div class="mission">
@@ -34,6 +34,17 @@
             v-model.number="new_mission.insignia"
           />
           <label>Astronauts</label>
+          <multiselect 
+            v-model="value"
+            tag-placeholder="Add this as new tag" 
+            placeholder="Search astronaut"
+            label="name" track-by="code"
+            :options="options"
+            :multiple="true" 
+            :taggable="true" 
+            @tag="addTag">
+          </multiselect>
+          <br>
           <select v-model.number="new_mission.astronauts">
             <option value="null">Select astronaut</option>
             <option
@@ -58,6 +69,7 @@
 <script>
 import { GET_MISSIONS, GET_ASTRONAUTS } from "@/graphql/queries.js";
 import { ADD_MISSION, DELETE_MISSION } from "@/graphql/mutations.js";
+import Multiselect from 'vue-multiselect'
 
 export default {
   name: "Home",
@@ -70,9 +82,30 @@ export default {
         description: '',
         astronauts: null,
       },
+      value: null,
+      options: [],
     };
   },
+  components: { 
+    Multiselect 
+  },
+  created() {
+    if (this.astronauts) {
+      this.astronauts.forEach((astronaut) => {
+        this.options.push({ name: astronaut.name, code: astronaut.id })
+      });
+      console.log(this.options);
+    }
+  },
   methods: {
+    addTag (newTag) {
+      const tag = {
+        name: newTag,
+        code: newTag.substring(0, 2) + Math.floor((Math.random() * 10000000))
+      }
+      this.options.push(tag)
+      this.value.push(tag)
+    },
     clearMission() {
       this.new_mission = {
         name: "",
@@ -133,6 +166,14 @@ export default {
   apollo: {
     astronauts: {
       query: GET_ASTRONAUTS,
+      variables () {
+        if (this.astronauts && this.options.length === 0) {
+          this.astronauts.forEach((astronaut) => {
+            this.options.push({ name: astronaut.name, code: astronaut.id })
+          });
+        }
+        return {}
+      },
     },
     missions: {
       query: GET_MISSIONS,
