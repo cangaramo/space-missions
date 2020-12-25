@@ -4,7 +4,7 @@
       <div class="col-8">
         <h2 class="mb-4">Missions 🚀</h2>
         <div class="row">
-          <div class="col-6 px-2 mb-4" v-for="(mission, index) in missions" :key="index">
+          <div class="col-6 my-3" v-for="(mission, index) in missions" :key="index">
             <mission-card @removeMission="removeMission($event)" :mission="mission"></mission-card>
           </div>
         </div>
@@ -72,7 +72,6 @@ export default {
       this.astronauts.forEach((astronaut) => {
         this.options.push({ name: astronaut.name, code: astronaut.id })
       });
-      console.log(this.options);
     }
   },
   methods: {

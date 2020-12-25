@@ -26,6 +26,15 @@ export var missions = [
     description: 'Achieve the first space docking with an uncrewed Agena target vehicle.',
     astronauts: [5, 6],
   },
+  {
+    id: 3,
+    name: "Gemini 12",
+    insignia:
+      "https://upload.wikimedia.org/wikipedia/commons/0/0e/Gemini_12_insignia.png",
+    date: 'November 1966',
+    description: 'Demonstrate that astronauts can effectively work outside of spacecraft.',
+    astronauts: [1, 2],
+  }
 ];
 
 export var astronauts = [
