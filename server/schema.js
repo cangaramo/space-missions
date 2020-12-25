@@ -4,7 +4,7 @@ export var schema = buildSchema(`
   type Query {
     getAstronauts: [Astronaut],
     getMissions: [Mission]
-    getMissionById(id: Int): Mission
+    getAstronautById(id: Int): Astronaut
   }
   type Mutation {
     addMission(name: String, insignia: String, date: String, description: String, astronauts: [ID]): Mission,

@@ -27,3 +27,14 @@ export const GET_ASTRONAUTS = gql`
     }
   }
 `;
+
+export const GET_ASTRONAUT_BY_ID = gql`
+  query($id: Int) {
+    astronaut: getAstronautById(id: $id) {
+      id
+      name
+      picture
+      nationality
+    }
+  }
+`;

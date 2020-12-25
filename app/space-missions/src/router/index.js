@@ -15,6 +15,13 @@ const routes = [
     name: "Missions",
     component: () =>
       import(/* webpackChunkName: "missions" */ "../views/Missions.vue")
+  },
+  {
+    path: "/astronaut/:id",
+    name: "Missions",
+    props: true,
+    component: () =>
+      import(/* webpackChunkName: "astronaut" */ "../views/Astrounat.vue")
   }
 ];
 

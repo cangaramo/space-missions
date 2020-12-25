@@ -5,7 +5,9 @@
       :style="{ backgroundImage: `url(${astronaut.picture})` }"
     ></div>
     <div class="pl-4">
-      <h4 class="mt-4">{{ astronaut.name }}</h4>
+      <router-link :to="`astronaut/${astronaut.id}`">
+        <h4 class="mt-4">{{ astronaut.name }}</h4>
+      </router-link>
       <p>{{ astronaut.nationality }}</p>
     </div>
     <button class="remove" @click="$emit('removeAstronaut', astronaut.id)">

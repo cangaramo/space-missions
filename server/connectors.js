@@ -45,6 +45,13 @@ var getAstronauts = () => {
   return astronauts;
 };
 
+var getAstronautById = ({id}) => {
+  const astronaut_found = astronauts.find(astronaut =>
+      astronaut.id == id
+  )
+  return astronaut_found;
+}
+
 var addAstronaut = ({ name, picture, nationality }) => {
     const new_astronaut = {
       id: astronauts.length,
@@ -75,4 +82,5 @@ export var root = {
   getAstronauts: getAstronauts,
   addAstronaut: addAstronaut,
   deleteAstronaut: deleteAstronaut,
+  getAstronautById: getAstronautById,
 };
