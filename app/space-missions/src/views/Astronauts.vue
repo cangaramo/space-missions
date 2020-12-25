@@ -9,16 +9,7 @@
             v-for="(astronaut, index) in astronauts"
             :key="index"
           >
-            <div class="astronaut">
-              <div class="img" :style="{ backgroundImage: `url(${astronaut.picture})` }"></div>
-              <div class="pl-4">
-                <h4 class="mt-4">{{ astronaut.name }}</h4>
-                <p>{{ astronaut.nationality }}</p>
-              </div>
-              <button class="remove" @click="removeAstronaut(astronaut.id)">
-                <i class="fas fa-times"></i>
-              </button>
-            </div>
+            <astronaut-card :astronaut="astronaut" @removeAstronaut="removeAstronaut($event)"></astronaut-card>
           </div>
         </div>
       </div>
@@ -43,6 +34,7 @@
 </template>
 
 <script>
+import AstronautCard from '@/components/AstronautCard.vue'
 import { GET_ASTRONAUTS } from "@/graphql/queries.js";
 import { ADD_ASTRONAUT, DELETE_ASTRONAUT } from "@/graphql/mutations.js";
 
@@ -56,6 +48,9 @@ export default {
         nationality: "",
       },
     };
+  },
+  components: {
+    AstronautCard
   },
   methods: {
     clearAstronaut() {
@@ -81,17 +76,6 @@ export default {
             data.astronauts.push(addAstronaut);
             cache.writeQuery({ query: GET_ASTRONAUTS, data });
           },
-          //Optimistic UI
-          // optimisticResponse: {
-          //   __typename: "Mutation",
-          //   addDirector: {
-          //     __typename: "Director",
-          //     id: this.directors.length,
-          //     name: this.new_director.name,
-          //     country: this.new_director.country,
-          //     age: this.new_director.age,
-          //   },
-          // },
         });
         this.clearAstronaut();
       } catch (error) {
