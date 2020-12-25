@@ -44,17 +44,6 @@
             :taggable="true" 
             @tag="addTag">
           </multiselect>
-          <br>
-          <select v-model.number="new_mission.astronauts">
-            <option value="null">Select astronaut</option>
-            <option
-              :value="astronaut.id"
-              v-for="astronaut in astronauts"
-              :key="astronaut.id"
-            >
-              {{ astronaut.name }}
-            </option>
-          </select>
           <label>Date</label>
           <input type="text" placeholder="July 1969" v-model="new_mission.date" />
           <label>Description</label>

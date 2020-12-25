@@ -6,7 +6,7 @@ export var missions = [
       "https://upload.wikimedia.org/wikipedia/commons/a/ac/Apollo_13-insignia.png",
     date: 'April 1970',
     description: 'Precision manned lunar landing demonstration and systematic lunar exploration.',
-    astronauts: [0, 2],
+    astronauts: [1, 4],
   },
   {
     id: 1,
@@ -15,7 +15,7 @@ export var missions = [
       "https://upload.wikimedia.org/wikipedia/commons/2/27/Apollo_11_insignia.png",
     date: 'July 1969',
     description: 'The initial lunar landing mission.',
-    astronauts: [0, 1],
+    astronauts: [2, 5],
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ export var missions = [
       "https://upload.wikimedia.org/wikipedia/commons/6/6d/Ge08Patch_orig.png",
     date: 'March 1966',
     description: 'Achieve the first space docking with an uncrewed Agena target vehicle.',
-    astronauts: [1, 2],
+    astronauts: [5, 6],
   },
 ];
 
@@ -60,5 +60,29 @@ export var astronauts = [
     short_bio: "" ,
     picture:
       "https://miro.medium.com/max/3000/1*NtnGztZkYYXJ0HIUc_zCYw.jpeg",
+  },
+  {
+    id: 4,
+    name: "Jack Swigert",
+    nationality: "American 🇺🇸",
+    short_bio: "" ,
+    picture:
+      "https://upload.wikimedia.org/wikipedia/commons/f/f6/Jack_Swigert.jpg",
+  },
+  {
+    id: 5,
+    name: "Neil Armstrong",
+    nationality: "American 🇺🇸",
+    short_bio: "" ,
+    picture:
+      "https://upload.wikimedia.org/wikipedia/commons/0/0d/Neil_Armstrong_pose.jpg",
+  },
+  {
+    id: 6,
+    name: "David Scott",
+    nationality: "American 🇺🇸",
+    short_bio: "" ,
+    picture:
+      "https://upload.wikimedia.org/wikipedia/commons/8/88/Dave_Scott_Apollo_15_CDR.jpg",
   },
 ];
