@@ -1,7 +1,21 @@
 <template>
-  <div class="astronaut-single" v-if="astronaut">
-    <h4>{{ astronaut.name }}</h4>
-    <p>{{ astronaut }}</p>
+  <div class="astronaut-single-wrapper" v-if="astronaut">
+    <div class="astronaut-single">
+      <div class="row">
+        <div class="col-8">
+          <div class="info">
+            <h4>{{ astronaut.name }}</h4>
+            <div v-html="astronaut.short_bio"></div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div
+            class="img"
+            :style="{ backgroundImage: `url(${astronaut.picture})` }"
+          ></div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -26,7 +40,5 @@ export default {
 </script>
 
 <style lang="scss">
-.astronaut-single {
-  color: white;
-}
+
 </style>

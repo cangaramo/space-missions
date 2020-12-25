@@ -1,5 +1,5 @@
 <template>
-  <div class="astronaut">
+  <div class="astronaut-card">
     <div
       class="img"
       :style="{ backgroundImage: `url(${astronaut.picture})` }"

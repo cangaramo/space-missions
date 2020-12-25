@@ -24,6 +24,7 @@ export const GET_ASTRONAUTS = gql`
       name
       picture
       nationality
+      short_bio
     }
   }
 `;
@@ -35,6 +36,7 @@ export const GET_ASTRONAUT_BY_ID = gql`
       name
       picture
       nationality
+      short_bio
     }
   }
 `;

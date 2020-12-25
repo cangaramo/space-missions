@@ -25,5 +25,6 @@ export var schema = buildSchema(`
     name: String,
     picture: String,
     nationality: String,
+    short_bio: String,
   }
 `);

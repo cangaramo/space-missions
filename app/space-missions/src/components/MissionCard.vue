@@ -1,5 +1,5 @@
 <template>
-  <div class="mission">
+  <div class="mission-card">
     <div class="top">
       <img :src="mission.insignia" />
       <div class="pl-4">
