@@ -59,6 +59,7 @@ export const DELETE_ASTRONAUT = gql`
       id
       name
       picture
+      nationality
     }
   }
 `;

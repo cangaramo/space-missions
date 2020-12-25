@@ -5,20 +5,7 @@
         <h2 class="mb-4">Missions 🚀</h2>
         <div class="row">
           <div class="col-6 px-2 mb-4" v-for="(mission, index) in missions" :key="index">
-            <div class="mission">
-              <div class="top">
-                <img :src="mission.insignia" />
-                <div class="pl-4"> 
-                  <h4>{{ mission.name }}</h4>
-                  <p>📅 {{ mission.date }}</p>
-                </div>
-              </div>
-              <p class="my-3">{{ mission.description }}</p>
-              <p>🧑‍🚀 {{ mission.astronauts.join(", ") }}</p>
-              <button class="remove" @click="removeMission(mission.id)">
-                <i class="fas fa-times"></i>
-              </button>
-            </div>
+            <mission-card @removeMission="removeMission($event)" :mission="mission"></mission-card>
           </div>
         </div>
       </div>
@@ -56,9 +43,10 @@
 </template>
 
 <script>
+import MissionCard from '@/components/MissionCard.vue';
 import { GET_MISSIONS, GET_ASTRONAUTS } from "@/graphql/queries.js";
 import { ADD_MISSION, DELETE_MISSION } from "@/graphql/mutations.js";
-import Multiselect from 'vue-multiselect'
+import Multiselect from 'vue-multiselect';
 
 export default {
   name: "Home",
@@ -76,7 +64,8 @@ export default {
     };
   },
   components: { 
-    Multiselect 
+    Multiselect ,
+    MissionCard,
   },
   created() {
     if (this.astronauts) {
