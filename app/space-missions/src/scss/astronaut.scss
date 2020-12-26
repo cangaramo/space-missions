@@ -1,11 +1,14 @@
 .astronaut-single-wrapper {
-  height: 100%;
   display: flex;
   align-items: center;
-  height: 80vh;
+  @media (min-width: 992px) {
+    height: 80vh;
+  }
 }
 .astronaut-single {
-  max-width: 900px;
+  @media (min-width: 992px){
+    max-width: 900px;
+  }
   margin: 0 auto;
   .info {
     background: white;
@@ -23,5 +26,9 @@
     width: 250px;
     background-size: cover;
     border-radius: 50%;
+    margin: 0 auto 30px auto;
+    @media (min-width:768px) {
+      margin: 0;
+    }
   }
 }

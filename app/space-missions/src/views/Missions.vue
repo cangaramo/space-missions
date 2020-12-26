@@ -1,15 +1,15 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-8">
+      <div class="col-lg-8">
         <h2 class="mb-4">Missions 🚀</h2>
         <div class="row">
-          <div class="col-6 my-3" v-for="(mission, index) in missions" :key="index">
+          <div class="col-md-6 my-3" v-for="(mission, index) in missions" :key="index">
             <mission-card @removeMission="removeMission($event)" :mission="mission"></mission-card>
           </div>
         </div>
       </div>
-      <div class="col-4 pl-5">
+      <div class="col-lg-4 pl-lg-5">
         <h2 class="mb-4">Add new</h2>
         <form>
           <label>Name</label>
