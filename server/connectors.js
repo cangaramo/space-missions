@@ -9,7 +9,10 @@ var getMissions = () => {
     mission.astronauts.forEach(function (missionAstronaut, index) {
       astronauts.forEach(function (astronaut) {
         if (astronaut.id == missionAstronaut) {
-          mission.astronauts[index] = astronaut.name;
+          mission.astronauts[index] = { 
+            id: astronaut.id,
+            name: astronaut.name 
+          };
         }
       });
     });

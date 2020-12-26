@@ -18,7 +18,7 @@ export var schema = buildSchema(`
     insignia: String,
     date: String,
     description: String,
-    astronauts: [ID]
+    astronauts: [Astronaut]
   }
   type Astronaut {
     id: ID,

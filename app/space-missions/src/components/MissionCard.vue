@@ -8,7 +8,14 @@
       </div>
     </div>
     <p class="my-3">{{ mission.description }}</p>
-    <p>🧑‍🚀 {{ mission.astronauts.join(", ") }}</p>
+    🧑‍🚀
+    <router-link 
+      v-for="(astronaut, index) in mission.astronauts" 
+      :key="index"
+      :to="`/astronaut/${astronaut.id}`"
+    >
+      {{ astronaut.name }}
+    </router-link>
     <button class="remove" @click="$emit('removeMission', mission.id)">
       <i class="fas fa-times"></i>
     </button>

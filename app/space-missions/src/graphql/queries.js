@@ -10,7 +10,10 @@ export const GET_MISSIONS = gql`
       insignia
       date
       description
-      astronauts
+      astronauts  {
+        id,
+        name
+      } 
     }
   }
 `;
