@@ -7,7 +7,6 @@ import ApolloClient from 'apollo-boost'
 Vue.config.productionTip = false;
 
 const apolloClient = new ApolloClient({
-  // uri: 'https://api.spacex.land/graphql'
   uri: 'http://localhost:4000/graphql'
 })
 
